@@ -1,0 +1,25 @@
+{
+  "name": "thotheca",
+  "version": "1.0.0",
+  "description": "A text management and knowledge graph system",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\" \"npm run start:electron\"",
+    "start:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && uvicorn main:app --reload",
+    "start:electron": "wait-on http://localhost:5173 && electron .",
+    "build": "cd frontend && npm run build",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && uv pip install -r requirements.txt",
+    "test": "cd backend && pytest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^28.2.0",
+    "wait-on": "^7.2.0"
+  },
+  "dependencies": {
+    "ansi-styles": "^6.2.1"
+  }
+}
