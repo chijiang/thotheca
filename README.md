@@ -22,7 +22,7 @@ Thotheca是一个基于Electron + React + Python的文本管理和知识图谱�
 
 1. 克隆项目：
 ```bash
-git clone https://github.com/yourusername/thotheca.git
+git clone git@github.com:chijiang/thotheca.git
 cd thotheca
 ```
 
