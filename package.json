@@ -12,7 +12,7 @@
     "install:all": "npm install && cd frontend && npm install && cd ../backend && uv pip install -r requirements.txt",
     "test": "cd backend && pytest"
   },
-  "author": "",
+  "author": "chijiang",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.2",

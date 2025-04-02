@@ -1,25 +1,29 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api import router as api_router
+from api.v1.router import api_router
 
 app = FastAPI(
-    title="Thotheca API",
-    description="Thotheca文本管理和知识图谱系统API",
+    title="知识图谱转换API",
+    description="将CSV数据转换为Neo4j知识图谱的API服务",
     version="1.0.0"
 )
 
 # 配置CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 在生产环境中应该设置具体的源
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # 注册路由
-app.include_router(api_router, prefix="/api")
+app.include_router(api_router, prefix="/api/v1")
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to Thotheca API"} 
+    return {
+        "message": "欢迎使用知识图谱转换API",
+        "version": "1.0.0",
+        "docs_url": "/docs"
+    } 
